@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software de Pesagem Rodoviária</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #333333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333333;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Software de Pesagem Rodoviária</h2>
+        <form action="{{ url_for('processar_pesagem') }}" method="post">
+            <label for="placa">Placa do Veículo:</label>
+            <input type="text" id="placa" name="placa" required>
+
+            <label for="modelo">Modelo do Veículo:</label>
+            <input type="text" id="modelo" name="modelo" required>
+
+            <label for="tipo">Tipo do Veículo:</label>
+            <input type="text" id="tipo" name="tipo" required>
+
+            <button type="submit" class="button">Realizar Pesagem</button>
+        </form>
+
+        <div class="result">
+            <h3>Peso Capturado:</h3>
+            <p><strong>Peso Bruto:</strong> {{ peso_bruto if peso_bruto else '-' }} kg</p>
+            <p><strong>Peso Tara:</strong> {{ peso_tara if peso_tara else '-' }} kg</p>
+            <p><strong>Peso Líquido:</strong> {{ peso_liquido if peso_liquido else '-' }} kg</p>
+        </div>
+    </div>
+</body>
+</html>
