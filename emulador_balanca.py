@@ -10,7 +10,7 @@ def enviar_peso_aleatorio(porta="COM5", baudrate=9600):
         while True:
             peso = random.randint(1000, 3000)  ##Gera um peso aleatório
             conexao.write(f"{peso}\n".encode())  ##Envia o peso em uma nova linha
-            print(f"Peso '{peso}' enviado para {porta}.")
+            print(f"Peso '{peso}' emulado na {porta}.")
             time.sleep(1)  ##Aguarda 1 segundo, depois mostra outro peso
 
     except serial.SerialException as e:

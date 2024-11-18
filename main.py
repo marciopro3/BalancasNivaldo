@@ -3,7 +3,7 @@ from services.balanca import Balanca               ##Importação das classes e 
 from app import AplicacaoPesagem
 
 ##Configuração de conexão do Banco de Dados Mysql encapsulada da aba banco_dados.py
-banco_dados = BancoDeDados(host="localhost", user="root", password="Admin123*", database="pesagem_db")
+banco_dados = BancoDeDados(host="192.168.107.128", user="marcio", password="Admin123*", database="pesagem_db")
 
 ##Configuração da porta que vai receber a string de "peso"
 balanca = Balanca(porta_serial="COM10")
